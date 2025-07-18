@@ -2,7 +2,6 @@
 import { X, Menu } from "@lucide/astro";
 import Button from "./ui/Button.astro";
 import MenuDropdownHeader from "./MenuDropdownHeader.astro";
-import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Nosotros", href: "/about" },
@@ -151,8 +150,8 @@ const navItems = [
   ) as NodeListOf<HTMLAnchorElement>;
   links.forEach((link) => {
     const href = link.getAttribute("href");
-    console.log(href, window.location.pathname);
-    if (href === window.location.pathname) {
+    const currentPath = window.location.pathname;
+    if (href === currentPath || (`${href}/` === currentPath)) {
       link.classList.add("text-primary");
       link.classList.remove("text-brand-gray");
     } else {

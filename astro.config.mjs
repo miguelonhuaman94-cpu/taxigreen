@@ -10,6 +10,4 @@ export default defineConfig({
       tailwindcss()
     ],
   },
-  trailingSlash: 'never'
- 
 });
