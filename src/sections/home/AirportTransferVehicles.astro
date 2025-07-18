@@ -1,0 +1,111 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import Button from "@/components/ui/Button.astro";
+import Card from "@/components/ui/card/Card.astro";
+import CardContent from "@/components/ui/card/CardContent.astro";
+import { MapPin, Star, Clock, Car } from "@lucide/astro";
+import { Image } from "astro:assets";
+
+const destinations = [
+  {
+    name: "Auto",
+    description:
+      "Ideal para individuos o grupos pequeños.",
+    image:
+      "https://images.unsplash.com/photo-1605894668519-2cd2a5cb2d2e?w=800&h=600&fit=crop&crop=entropy&auto=format",
+  
+  },
+  {
+    name: "SUV",
+    description:
+      "Perfecto para familias o grupos de hasta 6.",
+    image:
+      "https://images.unsplash.com/photo-1552832230-592beeb95b83?w=800&h=600&fit=crop&crop=entropy&auto=format",
+    
+  },
+  {
+    name: "Van",
+    description:
+      "Opción espaciosa para grupos más grandes.",
+    image:
+      "https://images.unsplash.com/photo-1564273132672-8b4b4d2f2c1a?w=800&h=600&fit=crop&crop=entropy&auto=format",
+   
+  },
+  {
+    name: "Minibús",
+    description:
+      "Ideal para eventos y grupos grandes.",
+    image:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&crop=entropy&auto=format",
+  }
+ 
+];
+---
+
+<section id="destinos" class="py-20 bg-background">
+  <div class="container mx-auto px-4 lg:px-8">
+    <SectionTitle
+      title="Vehículos de traslado al aeropuerto"
+      description="Flexibilidad total con nuestros servicios especializados y flota de vehículos premium"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        destinations.map((destination, index) => (
+          <Card
+            key={index}
+            class="group card-brand hover-scale overflow-hidden border-0"
+          >
+            <div class="relative h-56 overflow-hidden">
+              <Image
+                src={destination.image}
+                alt={destination.name}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                width={600}
+                height={400}
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/70 via-transparent to-transparent" />
+
+              {/* Rating Badge */}
+              {/* <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center space-x-1">
+                <Star class="w-4 h-4 text-yellow-500 fill-current" />
+                <span class="text-sm font-semibold text-brand-dark">
+                  {destination.rating}
+                </span>
+              </div> */}
+
+              {/* Price Badge */}
+              {/* <div class="absolute bottom-4 left-4 bg-primary rounded-lg px-3 py-1">
+                <span class="text-sm font-semibold text-white">
+                  {destination.price}
+                </span>
+              </div> */}
+            </div>
+
+            <CardContent class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-semibold text-brand-dark flex items-center">
+                  <Car class="w-5 h-5 text-primary mr-2" />
+                  {destination.name}
+                </h3>
+                {/* <div class="flex items-center text-sm text-brand-gray">
+                  <Clock class="w-4 h-4 mr-1" />
+                  {destination.duration}
+                </div> */}
+              </div>
+
+              <p class="text-brand-gray mb-6 leading-relaxed">
+                {destination.description}
+              </p>
+
+              <Button size="sm" class="w-full">
+                Reservar ahora
+              </Button>
+            </CardContent>
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</section>

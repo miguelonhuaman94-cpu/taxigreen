@@ -1,0 +1,283 @@
+---
+import { Clock, Users, Star, Calendar, CheckCircle } from "@lucide/astro";
+
+import Card from "@/components/ui/card/Card.astro";
+import CardContent from "@/components/ui/card/CardContent.astro";
+import Button from "@/components/ui/Button.astro";
+import Badge from "@/components/ui/Badge.astro";
+
+import Layout from "@/layouts/Layout.astro";
+import HeroSection from "@/components/HeroSection.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import { Image } from "astro:assets";
+
+const completedServices = [
+  {
+    id: 1,
+    title: "Evento Corporativo - Tech Summit 2024",
+    client: "TechCorp International",
+    date: "15 de Enero, 2024",
+    service: "Traslado Ejecutivo",
+    passengers: "25 ejecutivos",
+    duration: "2 días",
+    rating: 5,
+    description:
+      "Servicio de traslado premium para el evento tecnológico más importante del año.",
+    highlights: [
+      "Traslados aeropuerto-hotel",
+      "Servicio 24/7",
+      "Vehículos ejecutivos",
+      "Coordinación completa",
+    ],
+  },
+  {
+    id: 2,
+    title: "Tour Turístico - Ruta del Vino",
+    client: "Agencia Viajes Premium",
+    date: "28 de Febrero, 2024",
+    service: "Tour Gastronómico",
+    passengers: "12 turistas",
+    duration: "1 día completo",
+    rating: 5,
+    description:
+      "Experiencia gastronómica completa por las mejores viñas de la región.",
+    highlights: [
+      "Guía especializado",
+      "Degustación incluida",
+      "Transporte de lujo",
+      "Almuerzo gourmet",
+    ],
+  },
+  {
+    id: 3,
+    title: "Boda Real - Hacienda Los Rosales",
+    client: "Familia García-López",
+    date: "10 de Marzo, 2024",
+    service: "Evento Especial",
+    passengers: "50 invitados",
+    duration: "8 horas",
+    rating: 5,
+    description:
+      "Servicio completo de transporte para boda de lujo con múltiples traslados.",
+    highlights: [
+      "Limousines VIP",
+      "Coordinación perfecta",
+      "Decoración especial",
+      "Fotografía incluida",
+    ],
+  },
+  {
+    id: 4,
+    title: "Convención Médica Internacional",
+    client: "Hospital Central",
+    date: "22 de Abril, 2024",
+    service: "Traslado Corporativo",
+    passengers: "80 profesionales",
+    duration: "3 días",
+    rating: 5,
+    description:
+      "Logística completa de transporte para convención médica con asistentes internacionales.",
+    highlights: [
+      "Flota completa",
+      "Servicio multiidioma",
+      "Horarios flexibles",
+      "Atención 24/7",
+    ],
+  },
+  {
+    id: 5,
+    title: "Excursión Familiar - Parques Naturales",
+    client: "Club de Aventura",
+    date: "18 de Mayo, 2024",
+    service: "Tour Ecológico",
+    passengers: "35 familias",
+    duration: "2 días",
+    rating: 5,
+    description:
+      "Aventura familiar por los parques naturales más espectaculares de la región.",
+    highlights: [
+      "Buses especializados",
+      "Guías naturales",
+      "Actividades incluidas",
+      "Seguridad total",
+    ],
+  },
+  {
+    id: 6,
+    title: "Reunión de Negocios - Centro Financiero",
+    client: "Banco Nacional",
+    date: "5 de Junio, 2024",
+    service: "Shuttle Ejecutivo",
+    passengers: "15 directivos",
+    duration: "1 día",
+    rating: 5,
+    description:
+      "Servicio de shuttle exclusivo para reunión de alta dirección bancaria.",
+    highlights: [
+      "Vehículos blindados",
+      "Máxima discreción",
+      "Puntualidad absoluta",
+      "Protocolo VIP",
+    ],
+  },
+];
+
+const serviceTypes = [
+  {
+    name: "Traslado Ejecutivo",
+    count: 145,
+    color: "bg-blue-500",
+  },
+  {
+    name: "Tour Turístico",
+    count: 89,
+    color: "bg-green-500",
+  },
+  {
+    name: "Evento Especial",
+    count: 67,
+    color: "bg-purple-500",
+  },
+  {
+    name: "Servicio Corporativo",
+    count: 123,
+    color: "bg-orange-500",
+  },
+  {
+    name: "Traslado Aeropuerto",
+    count: 234,
+    color: "bg-red-500",
+  },
+];
+
+const stats = [
+  { number: "658+", label: "Servicios Completados", icon: CheckCircle },
+  { number: "450+", label: "Clientes Satisfechos", icon: Users },
+  { number: "4.9/5", label: "Calificación Promedio", icon: Star },
+  { number: "24/7", label: "Disponibilidad", icon: Clock },
+];
+---
+
+<Layout>
+  {/* Hero Section */}
+  <HeroSection
+    title="Servicios Realizados"
+    description="Experiencias exitosas que respaldan nuestra excelencia"
+  />
+
+  {/* Stats Section */}
+  <section class="py-16">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {
+          stats.map((stat, index) => (
+            <Card
+              key={index}
+              class="card-brand border-0 text-center hover-scale cursor-pointer"
+            >
+              <CardContent class="p-6">
+                <div class="w-12 h-12 bg-brand-red rounded-full flex items-center justify-center mx-auto mb-4">
+                  <stat.icon class="w-6 h-6 text-white" />
+                </div>
+                <div class="text-3xl font-bold text-brand-dark mb-2">
+                  {stat.number}
+                </div>
+                <div class="text-brand-gray font-medium">{stat.label}</div>
+              </CardContent>
+            </Card>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* Completed Services */}
+  <section class="pb-16">
+    <div class="container mx-auto px-4 lg:px-8">
+      <SectionTitle
+        title="Servicios Destacados"
+        description="Algunos de nuestros proyectos más exitosos y memorables"
+        />
+
+      <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {
+          completedServices.map((service) => (
+            <Card
+              key={service.id}
+              class="card-brand border-0 overflow-hidden bg-white hover-scale"
+            >
+              <Image
+                src={`/images/services/${service.id}.jpg`}
+                alt={service.title}
+                class="w-full h-48 object-cover"
+                width={600}
+                height={400}
+                loading="lazy"
+              />
+              <CardContent class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="text-lg font-bold text-brand-dark mb-1">
+                      {service.title}
+                    </h3>
+                    <p class="text-brand-gray text-sm">{service.client}</p>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="flex items-center space-x-2">
+                    <Calendar class="w-4 h-4 text-brand-red" />
+                    <span class="text-sm text-brand-gray">{service.date}</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <Clock class="w-4 h-4 text-brand-red" />
+                    <span class="text-sm text-brand-gray">
+                      {service.duration}
+                    </span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <Users class="w-4 h-4 text-brand-red" />
+                    <span class="text-sm text-brand-gray">
+                      {service.passengers}
+                    </span>
+                  </div>
+                  <Badge
+                    variant="outline"
+                    class="text-xs w-fit border-brand-red text-brand-red"
+                  >
+                    {service.service}
+                  </Badge>
+                </div>
+
+                <p class="text-brand-gray text-sm mb-4 leading-relaxed">
+                  {service.description}
+                </p>
+
+                <div class="mb-4">
+                  <h4 class="text-sm font-bold text-brand-dark mb-2">
+                    Servicios incluidos:
+                  </h4>
+                  <div class="grid grid-cols-2 gap-1">
+                    {service.highlights.map((highlight, index) => (
+                      <div class="flex items-center space-x-1">
+                        <CheckCircle class="w-3 h-3 text-green-500" />
+                        <span class="text-xs text-brand-gray">{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <Button
+                  size="sm"
+                  class="w-full"
+                >
+                  Ver Detalles
+                </Button>
+              </CardContent>
+            </Card>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

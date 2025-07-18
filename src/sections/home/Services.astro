@@ -1,0 +1,184 @@
+---
+import Button from "@/components/ui/Button.astro";
+import Card from "@/components/ui/card/Card.astro";
+import CardContent from "@/components/ui/card/CardContent.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+
+import { SERVICES } from "@/data/services";
+import { Image } from "astro:assets";
+---
+
+<section
+  id="servicios"
+  class="py-20 bg-gradient-to-b from-background to-accent/10"
+>
+  <div class="container mx-auto px-4 lg:px-8">
+    <SectionTitle
+      title="Servicios Destacados"
+      description="Ofrecemos una amplia gama de servicios de transporte adaptados a tus necesidades específicas"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        SERVICES.slice(0, 3).map((service, index) => (
+          <Card
+            key={index}
+            id={service.id}
+            class="group service-card card-brand hover-scale overflow-hidden border-0"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <Image
+                alt={service.title}
+                src={`/images/services/${service.id}.jpg`}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                width={600}
+                height={400}
+                loading="lazy"
+              />
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/60 to-transparent" />
+              <div class="absolute top-4 left-4 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                <service.icon class="w-6 h-6 text-white" />
+              </div>
+            </div>
+
+            <CardContent class="p-6">
+              <h3 class="text-xl font-semibold text-brand-dark mb-3">
+                {service.title}
+              </h3>
+              <p class="text-brand-gray mb-4 leading-relaxed">
+                {service.description}
+              </p>
+
+              <Button variant="brand" size="sm" class="w-full mb-2">
+                Reservar ahora
+              </Button>
+              <Button variant="secondaryOutline" size="sm" class="w-full">
+                Más información
+              </Button>
+            </CardContent>
+          </Card>
+        ))
+      }
+    </div>
+
+    <div class="text-center mt-12">
+      <Button id="view-all-services" variant="brand" size="lg">
+        Ver todos los servicios
+      </Button>
+    </div>
+
+    <div id="additional-services" class="hidden gap-8 mt-16">
+      {
+        SERVICES.slice(3, 6).map((service, index) => (
+          <Card
+            key={index}
+            id={service.id}
+            class="group service-card card-brand hover-scale overflow-hidden border-0"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/60 to-transparent" />
+              <div class="absolute top-4 left-4 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                <service.icon class="w-6 h-6 text-white" />
+              </div>
+            </div>
+
+            <CardContent class="p-6">
+              <h3 class="text-xl font-semibold text-brand-dark mb-3">
+                {service.title}
+              </h3>
+              <p class="text-brand-gray mb-4 leading-relaxed">
+                {service.description}
+              </p>
+              <Button variant="brand" size="sm" class="w-full mb-2">
+                Reservar ahora
+              </Button>
+              <Button variant="secondaryOutline" size="sm" class="w-full">
+                Más información
+              </Button>
+            </CardContent>
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+
+  <script>
+    import { smoothScrollTo } from "@/utils/smoothScrollTo.ts";
+
+    // This script can be used to toggle the visibility of additional services
+    const additionalServicesSection = document.getElementById(
+      "additional-services"
+    ) as HTMLElement;
+    const viewAllButton = document.getElementById(
+      "view-all-services"
+    ) as HTMLButtonElement;
+
+    viewAllButton.addEventListener("click", () => {
+      if (additionalServicesSection.classList.contains("hidden")) {
+        additionalServicesSection.classList.remove("hidden");
+        additionalServicesSection.classList.add(
+          "grid",
+          "grid-cols-1",
+          "md:grid-cols-2",
+          "lg:grid-cols-3"
+        );
+        viewAllButton.textContent = "Ver menos servicios";
+      } else {
+        additionalServicesSection.classList.add("hidden");
+        additionalServicesSection.classList.remove(
+          "grid",
+          "grid-cols-1",
+          "md:grid-cols-2",
+          "lg:grid-cols-3"
+        );
+        viewAllButton.textContent = "Ver todos los servicios";
+      }
+    });
+
+    // Focus the any service card when the url contains the hash of a service
+    function focusServiceCard() {
+      const hash = window.location.hash; // Ej: "#cargo-moving"
+      const serviceId = hash.replace("#", "");
+
+      if (serviceId) {
+        const serviceCard = document.getElementById(serviceId);
+        if (serviceCard) {
+          // Eliminar estilos anteriores si quieres
+          document.querySelectorAll(".service-card").forEach((el) => {
+            el.classList.remove("ring-2", "ring-primary", "focus:outline-none");
+          });
+
+          if (serviceCard.parentElement?.classList.contains("hidden")) {
+            // Show the additional services section if it's hidden
+            additionalServicesSection.classList.remove("hidden");
+            additionalServicesSection.classList.add(
+              "grid",
+              "grid-cols-1",
+              "md:grid-cols-2",
+              "lg:grid-cols-3"
+            );
+            viewAllButton.textContent = "Ver menos servicios";
+          }
+
+          
+          const offsetTop =
+            serviceCard.getBoundingClientRect().top + window.pageYOffset;
+
+          smoothScrollTo(offsetTop, 1500);
+
+          serviceCard.classList.add(
+            "focus:outline-none",
+            "ring-2",
+            "ring-primary"
+          );
+        }
+      }
+    }
+    // Ejecutar al cargar la página (por si hay un hash en la URL inicial)
+    window.addEventListener("DOMContentLoaded", focusServiceCard);
+
+    // Ejecutar cuando el hash cambia
+    window.addEventListener("hashchange", focusServiceCard);
+  </script>
+</section>
