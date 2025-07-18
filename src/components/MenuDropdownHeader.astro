@@ -152,7 +152,6 @@ const { item, isMobile = false } = Astro.props as Props;
           const serviceLink = document.querySelector(
           `.service-link-desktop[href="/#${serviceId}"]`
         ) as HTMLAnchorElement;
-        console.log(serviceLink);
           const parent = serviceLink.parentElement as HTMLElement;
           const sibling = parent.previousElementSibling as HTMLElement;
           const grantParent = parent.parentElement as HTMLElement;
@@ -185,7 +184,6 @@ const { item, isMobile = false } = Astro.props as Props;
           const serviceLink = document.querySelector(
             `.service-link-mobile[href="/#${serviceId}"]`
           ) as HTMLAnchorElement;
-          console.log(serviceLink);
           serviceLink.classList.add("bg-gray-100", "text-primary");
         }
       }
