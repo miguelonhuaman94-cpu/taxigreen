@@ -77,10 +77,11 @@ const footerLinks = {
         <h3 class="text-lg font-semibold mb-6">Servicios</h3>
         <ul class="space-y-3">
           {
-            footerLinks.services.map((link, index) => (
+            footerLinks.services.map((link) => (
               <li>
                 <a
                   href="#"
+                  aria-label={link}
                   class="text-gray-300 hover:text-white transition-brand"
                 >
                   {link}
@@ -96,10 +97,11 @@ const footerLinks = {
         <h3 class="text-lg font-semibold mb-6">Empresa</h3>
         <ul class="space-y-3">
           {
-            footerLinks.company.map((link, index) => (
+            footerLinks.company.map((link) => (
               <li>
                 <a
                   href="#"
+                  aria-label={link}
                   class="text-gray-300 hover:text-white transition-brand"
                 >
                   {link}
@@ -115,10 +117,11 @@ const footerLinks = {
         <h3 class="text-lg font-semibold mb-6">Legal</h3>
         <ul class="space-y-3">
           {
-            footerLinks.legal.map((link, index) => (
+            footerLinks.legal.map((link) => (
               <li>
                 <a
                   href="#"
+                  aria-label={link}
                   class="text-gray-300 hover:text-white transition-brand"
                 >
                   {link}
@@ -141,24 +144,28 @@ const footerLinks = {
           <div class="flex space-x-4">
             <a
               href="#"
+              aria-label="Facebook"
               class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-brand"
             >
               <Facebook class="w-5 h-5" />
             </a>
             <a
               href="#"
+              aria-label="Instagram"
               class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-brand"
             >
               <Instagram class="w-5 h-5" />
             </a>
             <a
               href="#"
+              aria-label="Twitter"
               class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-brand"
             >
               <Twitter class="w-5 h-5" />
             </a>
             <a
               href="#"
+              aria-label="LinkedIn"
               class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-brand"
             >
               <Linkedin class="w-5 h-5" />
@@ -179,10 +186,10 @@ const footerLinks = {
           © {currentYear} PeGO. Todos los derechos reservados.
         </p>
         <div class="flex space-x-6 text-sm">
-          <a href="#" class="text-gray-400 hover:text-white transition-brand">
+          <a href="#" aria-label="Política de Privacidad" class="text-gray-400 hover:text-white transition-brand">
             Política de Privacidad
           </a>
-          <a href="#" class="text-gray-400 hover:text-white transition-brand">
+          <a href="#" aria-label="Términos de Servicio" class="text-gray-400 hover:text-white transition-brand">
             Términos de Servicio
           </a>
         </div>

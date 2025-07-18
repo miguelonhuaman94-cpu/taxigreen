@@ -50,10 +50,14 @@ import { Image } from "astro:assets";
                 {service.description}
               </p>
 
-              <Button variant="brand" size="sm" class="w-full mb-2">
+              <Button 
+               aria-label="Reservar Ahora"
+              variant="brand" size="sm" class="w-full mb-2">
                 Reservar ahora
               </Button>
-              <Button variant="secondaryOutline" size="sm" class="w-full">
+              <Button 
+                aria-label="Más Información"
+              variant="secondaryOutline" size="sm" class="w-full">
                 Más información
               </Button>
             </CardContent>
@@ -63,7 +67,9 @@ import { Image } from "astro:assets";
     </div>
 
     <div class="text-center mt-12">
-      <Button id="view-all-services" variant="brand" size="lg">
+      <Button 
+       aria-label="Ver Todos los Servicios"
+      id="view-all-services" variant="brand" size="lg">
         Ver todos los servicios
       </Button>
     </div>
@@ -90,10 +96,14 @@ import { Image } from "astro:assets";
               <p class="text-brand-gray mb-4 leading-relaxed">
                 {service.description}
               </p>
-              <Button variant="brand" size="sm" class="w-full mb-2">
+              <Button 
+              aria-label="Reservar Ahora"
+              variant="brand" size="sm" class="w-full mb-2">
                 Reservar ahora
               </Button>
-              <Button variant="secondaryOutline" size="sm" class="w-full">
+              <Button 
+               aria-label="Más Información"
+              variant="secondaryOutline" size="sm" class="w-full">
                 Más información
               </Button>
             </CardContent>

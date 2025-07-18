@@ -43,13 +43,16 @@ import Button from "@/components/ui/Button.astro";
         cada trayecto.
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
-        <Button variant="hero" size="xl" class="group">
+        <Button 
+         aria-label="Realizar Reserva"
+        variant="hero" size="xl" class="group">
           Realiza tu reserva
           <MoveRight
             class="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1"
           />
         </Button>
         <Button
+          aria-label="Ver Nuestros Servicios"
           variant="brandOutline"
           size="xl"
           class="text-white border-white hover:bg-white hover:text-primary"

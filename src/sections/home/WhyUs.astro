@@ -57,7 +57,6 @@ const stats = [
 
 <section class="py-20 bg-gradient-to-b from-background to-accent/10">
   <div class="container mx-auto px-4 lg:px-8">
-    
     <SectionTitle
       title="¿Por qué elegirnos?"
       description="Somos líderes en servicios de transporte premium con valores que nos distinguen"
@@ -99,14 +98,14 @@ const stats = [
                 </p>
               </div>
 
-              <div class="space-y-3">
+              {/* <div class="space-y-3">
                 {value.features.map((feature) => (
                   <div class="flex items-center text-sm text-brand-gray">
                     <CheckCircle class="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
                     {feature}
                   </div>
                 ))}
-              </div>
+              </div> */}
             </CardContent>
           </Card>
         ))
@@ -127,12 +126,14 @@ const stats = [
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <button
+            aria-label="Hacer una reserva"
             class="cursor-pointer bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-brand"
           >
             Hacer una reserva
           </button>
-          
+
           <button
+            aria-label="Contactar ahora"
             class="cursor-pointer border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-brand"
           >
             Contactar ahora

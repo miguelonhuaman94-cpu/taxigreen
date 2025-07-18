@@ -21,6 +21,7 @@ const { item, isMobile = false } = Astro.props as Props;
           <div class="space-y-2 py-6">
             <div class="-mx-3">
               <button
+              aria-label="Toggle Services"
                 type="button"
                 class="flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 font-medium text-brand-gray hover:text-primary transition-brand"
                 aria-expanded="false"
@@ -39,6 +40,7 @@ const { item, isMobile = false } = Astro.props as Props;
                 {SERVICES.map((service) => (
                   <a
                     href={`/#${service.id}`}
+                    aria-label={service.title}
                     class="service-link-mobile block rounded-lg py-2 pr-3 pl-6 text-sm hover:bg-gray-50"
                   >
                     {service.title}
@@ -55,6 +57,7 @@ const { item, isMobile = false } = Astro.props as Props;
       class="hidden lg:flex lg:gap-x-12">
         <div class="relative text-sm font-medium text-brand-gray hover:text-primary transition-brand">
           <button
+            aria-label="Toggle Services"
             type="button"
             class="flex items-center gap-x-1"
             aria-expanded="false"
@@ -78,6 +81,7 @@ const { item, isMobile = false } = Astro.props as Props;
                     <a
                       href={`/#${service.id}`}
                       class="service-link-desktop block font-semibold text-gray-900"
+                      aria-label={service.title}
                     >
                       {service.title}
                       <span class="absolute inset-0" />
