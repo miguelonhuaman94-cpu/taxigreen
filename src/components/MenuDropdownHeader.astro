@@ -54,7 +54,7 @@ const { item, isMobile = false } = Astro.props as Props;
     ) : (
       <div 
       id="menu-dropdown-desktop"
-      class="hidden lg:flex lg:gap-x-12">
+      class=" lg:flex lg:gap-x-12">
         <div class="relative text-sm font-medium text-brand-gray hover:text-primary transition-brand">
           <button
             aria-label="Toggle Services"
@@ -141,17 +141,18 @@ const { item, isMobile = false } = Astro.props as Props;
       const hash = window.location.hash; // Ej: "#cargo-moving"
       const serviceId = hash.replace("#", "");
 
+      console.log(serviceId)
+
       if (serviceId) {
-        
 
-        const menuDropdownMobile = document.querySelector("#menu-dropdown-mobile.hidden");
-        const menuDropdownDesktop = document.querySelector("#menu-dropdown-desktop.hidden");
-
+        const menuDropdownMobile = document.querySelector("#menu-dropdown-mobile");
+        const menuDropdownDesktop = document.querySelector("#menu-dropdown-desktop");
   
-        if (menuDropdownMobile) {
+        if (menuDropdownDesktop) {
           const serviceLink = document.querySelector(
           `.service-link-desktop[href="/#${serviceId}"]`
         ) as HTMLAnchorElement;
+        console.log(serviceLink);
           const parent = serviceLink.parentElement as HTMLElement;
           const sibling = parent.previousElementSibling as HTMLElement;
           const grantParent = parent.parentElement as HTMLElement;
@@ -175,16 +176,16 @@ const { item, isMobile = false } = Astro.props as Props;
           );
         }
       
-      if (menuDropdownDesktop) {
+      if (menuDropdownMobile) {
         //* Remove previous active styles
         document.querySelectorAll(".service-link-mobile").forEach((el) => {
-          el.classList.remove("bg-gray-100", "text-primary");
+          el.classList.remove("bg-gray-100");
         });
 
           const serviceLink = document.querySelector(
             `.service-link-mobile[href="/#${serviceId}"]`
           ) as HTMLAnchorElement;
-          serviceLink.classList.add("bg-gray-100", "text-primary");
+          serviceLink.classList.add("bg-gray-100");
         }
       }
     }

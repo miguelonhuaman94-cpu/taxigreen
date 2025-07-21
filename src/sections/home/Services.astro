@@ -1,11 +1,10 @@
 ---
 import Button from "@/components/ui/Button.astro";
-import Card from "@/components/ui/card/Card.astro";
+import Card from "@/sections/home/components/Card.astro";
 import CardContent from "@/components/ui/card/CardContent.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
 
 import { SERVICES } from "@/data/services";
-import { Image } from "astro:assets";
 ---
 
 <section
@@ -24,24 +23,10 @@ import { Image } from "astro:assets";
           <Card
             key={index}
             id={service.id}
-            class="group service-card card-brand hover-scale overflow-hidden border-0"
+            icon={service.icon}
+            sectionName="services"
+            title={service.title}
           >
-            <div class="relative h-48 overflow-hidden">
-              <Image
-                alt={service.title}
-                src={`/images/services/${service.id}.jpg`}
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                width={600}
-                height={400}
-                loading="lazy"
-              />
-              
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/60 to-transparent" />
-              <div class="absolute top-4 left-4 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                <service.icon class="w-6 h-6 text-white" />
-              </div>
-            </div>
-
             <CardContent class="p-6">
               <h3 class="text-xl font-semibold text-brand-dark mb-3">
                 {service.title}
@@ -50,14 +35,20 @@ import { Image } from "astro:assets";
                 {service.description}
               </p>
 
-              <Button 
-               aria-label="Reservar Ahora"
-              variant="brand" size="sm" class="w-full mb-2">
+              <Button
+                aria-label="Reservar Ahora"
+                variant="brand"
+                size="sm"
+                class="w-full mt-2 mb-4"
+              >
                 Reservar ahora
               </Button>
-              <Button 
+              <Button
                 aria-label="Más Información"
-              variant="secondaryOutline" size="sm" class="w-full">
+                variant="secondaryOutline"
+                size="sm"
+                class="w-full"
+              >
                 Más información
               </Button>
             </CardContent>
@@ -67,9 +58,12 @@ import { Image } from "astro:assets";
     </div>
 
     <div class="text-center mt-12">
-      <Button 
-       aria-label="Ver Todos los Servicios"
-      id="view-all-services" variant="brand" size="lg">
+      <Button
+        aria-label="Ver Todos los Servicios"
+        id="view-all-services"
+        variant="brand"
+        size="lg"
+      >
         Ver todos los servicios
       </Button>
     </div>
@@ -80,15 +74,10 @@ import { Image } from "astro:assets";
           <Card
             key={index}
             id={service.id}
-            class="group service-card card-brand hover-scale overflow-hidden border-0"
+            icon={service.icon}
+            sectionName="services"
+            title={service.title}
           >
-            <div class="relative h-48 overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/60 to-transparent" />
-              <div class="absolute top-4 left-4 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                <service.icon class="w-6 h-6 text-white" />
-              </div>
-            </div>
-
             <CardContent class="p-6">
               <h3 class="text-xl font-semibold text-brand-dark mb-3">
                 {service.title}
@@ -96,14 +85,20 @@ import { Image } from "astro:assets";
               <p class="text-brand-gray mb-4 leading-relaxed">
                 {service.description}
               </p>
-              <Button 
-              aria-label="Reservar Ahora"
-              variant="brand" size="sm" class="w-full mb-2">
+              <Button
+                aria-label="Reservar Ahora"
+                variant="brand"
+                size="sm"
+                class="w-full mt-2 mb-4"
+              >
                 Reservar ahora
               </Button>
-              <Button 
-               aria-label="Más Información"
-              variant="secondaryOutline" size="sm" class="w-full">
+              <Button
+                aria-label="Más Información"
+                variant="secondaryOutline"
+                size="sm"
+                class="w-full"
+              >
                 Más información
               </Button>
             </CardContent>
@@ -171,7 +166,6 @@ import { Image } from "astro:assets";
             viewAllButton.textContent = "Ver menos servicios";
           }
 
-          
           const offsetTop =
             serviceCard.getBoundingClientRect().top + window.pageYOffset;
 
