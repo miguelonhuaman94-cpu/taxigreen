@@ -1,58 +1,9 @@
 ---
-import { Shield, Clock, Award, Users, Star, CheckCircle } from "@lucide/astro";
 import Card from "@/components/ui/card/Card.astro";
 import CardContent from "@/components/ui/card/CardContent.astro";
-import Button from "@/components/ui/Button.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
 
-const values = [
-  {
-    icon: Award,
-    title: "Compromiso",
-    description:
-      "Nos comprometemos a brindar el mejor servicio de transporte con atención personalizada y profesional en cada viaje.",
-    features: [
-      "Servicio personalizado",
-      "Atención 24/7",
-      "Conductores certificados",
-      "Garantía de calidad",
-    ],
-    color: "from-blue-500 to-blue-600",
-  },
-  {
-    icon: Clock,
-    title: "Puntualidad",
-    description:
-      "La puntualidad es nuestra prioridad. Llegamos siempre a tiempo para que no te preocupes por retrasos o contratiempos.",
-    features: [
-      "Monitoreo en tiempo real",
-      "Planificación de rutas",
-      "Alertas de tráfico",
-      "Margen de tiempo incluido",
-    ],
-    color: "from-green-500 to-green-600",
-  },
-  {
-    icon: Shield,
-    title: "Seguridad",
-    description:
-      "Tu seguridad es fundamental. Contamos con vehículos equipados con tecnología de seguridad y conductores especializados.",
-    features: [
-      "Vehículos certificados",
-      "Seguro de pasajeros",
-      "Rastreo GPS",
-      "Protocolos de seguridad",
-    ],
-    color: "from-red-500 to-red-600",
-  },
-];
-
-const stats = [
-  { number: "10+", label: "Años de experiencia" },
-  { number: "5000+", label: "Clientes satisfechos" },
-  { number: "50+", label: "Vehículos disponibles" },
-  { number: "99%", label: "Puntualidad garantizada" },
-];
+import { STATS, VALUES } from "@/data/why-us";
 ---
 
 <section class="py-20 bg-gradient-to-b from-background to-accent/10">
@@ -65,7 +16,7 @@ const stats = [
     {/* Stats Section */}
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
       {
-        stats.map((stat) => (
+        STATS.map((stat) => (
           <div class="text-center">
             <div class="text-3xl md:text-4xl font-bold text-primary mb-2">
               {stat.number}
@@ -79,14 +30,17 @@ const stats = [
     {/* Values Section */}
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {
-        values.map((value) => (
+        VALUES.slice(0, 3).map((value) => (
           <Card class="group card-brand hover-scale border-0 overflow-hidden">
-            <div class={`h-2 bg-gradient-to-r ${value.color}`} />
+            <div class:list={["h2 bg-gradient-to-r", value.color]} />
 
             <CardContent class="p-8">
               <div class="text-center mb-6">
                 <div
-                  class={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${value.color} flex items-center justify-center`}
+                  class:list={[
+                    "w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r flex items-center justify-center",
+                    value.color,
+                  ]}
                 >
                   <value.icon class="w-8 h-8 text-white" />
                 </div>
@@ -132,12 +86,12 @@ const stats = [
             Hacer una reserva
           </button>
 
-          <button
+          <!-- <button
             aria-label="Contactar ahora"
             class="cursor-pointer border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-brand"
           >
             Contactar ahora
-          </button>
+          </button> -->
         </div>
       </div>
     </div>

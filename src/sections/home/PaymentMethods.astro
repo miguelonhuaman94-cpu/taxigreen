@@ -1,61 +1,23 @@
 ---
-import { CreditCard, Smartphone, Building2, Banknote } from "@lucide/astro";
-
-import Card from "@/components/ui/card/Card.astro";
-
-import SectionTitle from "@/components/SectionTitle.astro";
 import { Image } from "astro:assets";
 
-const paymentMethods = [
-  {
-    name: "Tarjetas de Crédito",
-    description: "Visa, Mastercard, American Express",
-    icon: CreditCard,
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=300&h=200&fit=crop&crop=entropy&auto=format",
-    features: ["Pago seguro", "Procesamiento inmediato", "Cuotas disponibles"],
-  },
-  {
-    name: "Pago Digital",
-    description: "PSE, Nequi, Daviplata, Bancolombia",
-    icon: Smartphone,
-    image:
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=300&h=200&fit=crop&crop=entropy&auto=format",
-    features: ["Transferencia inmediata", "Sin comisiones", "Disponible 24/7"],
-  },
-  {
-    name: "Transferencia Bancaria",
-    description: "Todos los bancos principales",
-    icon: Building2,
-    image:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=300&h=200&fit=crop&crop=entropy&auto=format",
-    features: [
-      "Pagos empresariales",
-      "Facturación electrónica",
-      "Comprobantes oficiales",
-    ],
-  },
-  {
-    name: "Efectivo",
-    description: "Pago directo al conductor",
-    icon: Banknote,
-    image:
-      "https://images.unsplash.com/photo-1607863680198-23d4b2565df0?w=300&h=200&fit=crop&crop=entropy&auto=format",
-    features: ["Sin comisiones", "Recibo físico", "Cambio exacto"],
-  },
-];
+import Card from "@/components/ui/card/Card.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+
+import { PAYMENT_METHODS } from "@/data/payment-methods";
+
 ---
 
-<section class="pb-20 bg-background">
+<section class="py-20 bg-background">
   <div class="container mx-auto px-4 lg:px-8">
     <SectionTitle
       title="Métodos de Pago"
       description="Elige la opción que mejor se adapte a tus necesidades"
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
       {
-        paymentMethods.map((method) => (
+        PAYMENT_METHODS.map((method) => (
           <Card class="group card-brand hover-scale border-0 overflow-hidden">
             <div class="relative h-40 overflow-hidden">
               <Image

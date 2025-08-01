@@ -1,4 +1,11 @@
 import { Plane, Clock, MapPin, Car, Shield } from "@lucide/astro";
+import airportTransferImage from "@/assets/services/airport-transfer.webp?url";
+import hourlyServiceImage from '@/assets/services/hourly-service.webp?url';
+import tourismTripImage from '@/assets/services/tourism-trip.webp?url';
+import packageDeliveryImage from '@/assets/services/package-delivery.webp?url';
+import schoolTransportImage from '@/assets/services/school-transport.webp?url';
+import cargoMovingImage from '@/assets/services/cargo-moving.webp?url';
+
 
 export const SERVICES = [
   {
@@ -8,13 +15,13 @@ export const SERVICES = [
     title: "Traslado al aeropuerto",
     description:
       "Servicio confiable y puntual para llegar a tiempo a tu vuelo. Monitoreo de vuelos en tiempo real.",
-    // image: airportImage,
+    image: airportTransferImage,
     features: ["Monitoreo de vuelos", "Servicio 24/7", "Tarifas fijas"],
   },
   {
     icon: Clock,
     id: "hourly-service",
-  
+    image: hourlyServiceImage,  
     title: "Servicio por horas",
     description:
       "Disponibilidad total durante el tiempo que necesites. Ideal para reuniones de trabajo y eventos.",
@@ -23,12 +30,12 @@ export const SERVICES = [
   },
   {
     icon: MapPin,
-    id: "tourist-trips",
+    id: "tourism-trip",
  
     title: "Viajes turísticos",
     description:
       "Descubre los mejores destinos con nuestros tours personalizados y guías especializados.",
-    // image: tourismImage,
+    image: tourismTripImage,
     features: [
       "Rutas personalizadas",
       "Guías especializados",
@@ -42,6 +49,7 @@ export const SERVICES = [
     title: "Envio de Paquetes",
     description: "Soluciones de entrega de paquetes rápidas y seguras",
     id: "package-delivery",
+    image: packageDeliveryImage,
    
     features: ["Entrega rápida", "Seguimiento en tiempo real", "Seguro de envío"],
   },
@@ -50,7 +58,7 @@ export const SERVICES = [
     title: "Viajes escolares",
     description: "Transporte seguro y puntual para estudiantes.",
     id: "school-transport",
- 
+    image: schoolTransportImage,
     features: ["Conductores capacitados", "Vehículos adaptados", "Rutas seguras"],
   },
   {
@@ -58,7 +66,7 @@ export const SERVICES = [
     title: "Carga y mudanzas",
     description: "Servicios de carga y mudanza eficientes y seguros.",
     id: "cargo-moving",
-   
+    image: cargoMovingImage,
     features: ["Transporte seguro", "Embalaje profesional", "Seguimiento de envíos"],
   },
 ];

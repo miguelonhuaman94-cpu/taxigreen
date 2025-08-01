@@ -1,14 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import { X, Menu } from "@lucide/astro";
 import Button from "./ui/Button.astro";
 import MenuDropdownHeader from "./MenuDropdownHeader.astro";
-
-const navItems = [
-  { name: "Nosotros", href: "/about" },
-  { name: "Servicios", href: "#servicios" },
-  { name: "Nuestra Flota", href: "/fleet" },
-  { name: "Servicios Realizados", href: "/done-services" },
-];
+import { NAVIGATION } from "@/data/navigation";
 ---
 
 <header
@@ -18,18 +13,19 @@ const navItems = [
     <div class="flex items-center justify-between h-16">
       {/* Logo */}
       <a href="/" aria-label="Inicio" class="flex items-center space-x-2">
-        <div
-          class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center"
-        >
-          <!-- <Car class="w-6 h-6 text-white" /> -->
-        </div>
-        <span class="text-xl font-bold text-brand-dark">PeGO</span>
+        <Image
+          src="/logo.svg"
+          alt="PeGO Logo"
+          class="h-8 w-auto"
+          width={32}
+          height={32}
+        />
       </a>
 
       {/* Desktop Navigation */}
       <nav id="desktop-nav" class="hidden lg:flex items-center space-x-8">
         {
-          navItems.map((item) =>
+          NAVIGATION.map((item) =>
             item.href.startsWith("#") ? (
               <MenuDropdownHeader item={item} />
             ) : (
@@ -48,14 +44,12 @@ const navItems = [
       {/* Desktop Buttons */}
       <div class="hidden lg:flex items-center space-x-3">
         <Button
-          aria-label="Ingresar"
-          variant="ghost"
+          data-message="Hola, me gustaría reservar un servicio."
+          aria-label="Reservar Ahora"
           size="sm"
-          class="text-brand-gray"
         >
-          Ingresar
+          Reservar Ahora
         </Button>
-        <Button aria-label="Reservar Ahora" size="sm"> Reservar Ahora </Button>
       </div>
 
       {/* Mobile Menu Button */}
@@ -76,7 +70,7 @@ const navItems = [
     >
       <nav class="flex flex-col space-y-4">
         {
-          navItems.map((item) =>
+          NAVIGATION.map((item) =>
             item.href.startsWith("#") ? (
               <MenuDropdownHeader item={item} isMobile />
             ) : (
@@ -93,14 +87,10 @@ const navItems = [
         }
         <div class="flex flex-col space-y-2 pt-4">
           <Button
-            aria-label="Ingresar"
-            variant="ghost"
+            data-message="Hola, me gustaría reservar un servicio."
+            aria-label="Reservar Ahora"
             size="sm"
-            class="justify-start"
           >
-            Ingresar
-          </Button>
-          <Button aria-label="Reservar Ahora" size="sm">
             Reservar Ahora
           </Button>
         </div>
@@ -151,7 +141,7 @@ const navItems = [
   links.forEach((link) => {
     const href = link.getAttribute("href");
     const currentPath = window.location.pathname;
-    if (href === currentPath || (`${href}/` === currentPath)) {
+    if (href === currentPath || `${href}/` === currentPath) {
       link.classList.add("text-primary");
       link.classList.remove("text-brand-gray");
     } else {

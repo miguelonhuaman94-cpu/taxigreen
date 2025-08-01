@@ -1,32 +1,21 @@
 ---
+import { NAVIGATION } from "@/data/navigation";
+import { SERVICES } from "@/data/services";
 import {
-  Car,
   Phone,
   Mail,
   MapPin,
   Facebook,
   Instagram,
-  Twitter,
   Linkedin,
 } from "@lucide/astro";
+import { Image } from "astro:assets";
 
 const currentYear = new Date().getFullYear();
 
 const footerLinks = {
-  services: [
-    "Traslado al aeropuerto",
-    "Servicio por horas",
-    "Viajes turísticos",
-    "Eventos corporativos",
-    "Traslados ejecutivos",
-  ],
-  company: [
-    "Acerca de nosotros",
-    "Nuestra flota",
-    "Testimonios",
-    "Trabajar con nosotros",
-    "Contacto",
-  ],
+  services: SERVICES,
+  company: NAVIGATION,
   legal: [
     "Términos de servicio",
     "Política de privacidad",
@@ -42,16 +31,15 @@ const footerLinks = {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {/* Logo and Description */}
       <div class="lg:col-span-1">
-        <div class="flex items-center space-x-2 mb-6">
-          <div
-            class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center"
-          >
-            <Car class="w-6 h-6 text-white" />
-          </div>
-          <span class="text-2xl font-bold">PeGO</span>
-        </div>
+        <Image
+          src="/logo.svg"
+          alt="Logo de la empresa"
+          class="w-32 mb-4"
+          width={128}
+          height={64}
+        />
         <p class="text-gray-300 mb-6 leading-relaxed">
-          Más de 10 años ofreciendo servicios de transporte premium con la más
+          Más de 25 años ofreciendo servicios de transporte premium con la más
           alta calidad, seguridad y puntualidad en cada viaje.
         </p>
 
@@ -80,11 +68,11 @@ const footerLinks = {
             footerLinks.services.map((link) => (
               <li>
                 <a
-                  href="#"
-                  aria-label={link}
+                  href={`/#${link.id}`}
+                  aria-label={link.title}
                   class="text-gray-300 hover:text-white transition-brand"
                 >
-                  {link}
+                  {link.title}
                 </a>
               </li>
             ))
@@ -100,11 +88,11 @@ const footerLinks = {
             footerLinks.company.map((link) => (
               <li>
                 <a
-                  href="#"
-                  aria-label={link}
+                  href={!link.href.startsWith("#") ? link.href : `/${link.href}`}
+                  aria-label={link.name}
                   class="text-gray-300 hover:text-white transition-brand"
                 >
-                  {link}
+                  {link.name}
                 </a>
               </li>
             ))
@@ -143,28 +131,39 @@ const footerLinks = {
           <span class="text-gray-300">Síguenos:</span>
           <div class="flex space-x-4">
             <a
-              href="#"
+              href="https://www.facebook.com/satelital355"
               aria-label="Facebook"
               class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-brand"
             >
               <Facebook class="w-5 h-5" />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/satelital355/"
               aria-label="Instagram"
               class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-brand"
             >
               <Instagram class="w-5 h-5" />
             </a>
             <a
-              href="#"
-              aria-label="Twitter"
+              href="https://www.tiktok.com/@satelital355"
+              aria-label="TikTok"
               class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-brand"
             >
-              <Twitter class="w-5 h-5" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+                class="size-9"
+                fill="none"
+                ><rect width="36" height="36" rx="8" ></rect><path
+                  d="M24.7584 12.4912C24.6183 12.4179 24.4818 12.3376 24.3496 12.2505C23.9651 11.9935 23.6125 11.6906 23.2995 11.3485C22.5165 10.4424 22.224 9.5233 22.1163 8.87977H22.1206C22.0306 8.34561 22.0678 8 22.0734 8H18.5067V21.9459C18.5067 22.1332 18.5067 22.3182 18.4989 22.5011C18.4989 22.5238 18.4967 22.5448 18.4954 22.5693C18.4954 22.5794 18.4954 22.5899 18.4932 22.6004C18.4932 22.603 18.4932 22.6056 18.4932 22.6083C18.4556 23.1086 18.297 23.592 18.0313 24.0159C17.7656 24.4397 17.401 24.791 16.9695 25.0389C16.5197 25.2976 16.0111 25.4333 15.4937 25.4326C13.8319 25.4326 12.485 24.0624 12.485 22.3703C12.485 20.6781 13.8319 19.3079 15.4937 19.3079C15.8083 19.3076 16.1209 19.3577 16.42 19.4562L16.4243 15.784C15.5163 15.6655 14.5939 15.7384 13.7152 15.9983C12.8365 16.2583 12.0207 16.6995 11.319 17.2942C10.7043 17.8343 10.1874 18.4788 9.7918 19.1986C9.64124 19.4611 9.07317 20.5158 9.00437 22.2277C8.96111 23.1993 9.24969 24.2059 9.38727 24.622V24.6307C9.4738 24.8757 9.8091 25.7117 10.3555 26.4165C10.7962 26.9819 11.3168 27.4785 11.9005 27.8904V27.8816L11.9092 27.8904C13.6359 29.0768 15.5504 28.999 15.5504 28.999C15.8818 28.9854 16.992 28.999 18.2527 28.3948C19.651 27.725 20.4471 26.7271 20.4471 26.7271C20.9557 26.1309 21.3601 25.4514 21.6429 24.7178C21.9657 23.8599 22.0734 22.8309 22.0734 22.4197V15.0211C22.1167 15.0473 22.693 15.4328 22.693 15.4328C22.693 15.4328 23.5232 15.9709 24.8186 16.3213C25.7479 16.5706 27 16.6231 27 16.6231V13.0428C26.5613 13.0909 25.6705 12.9509 24.7584 12.4912Z"
+                  fill="white"></path></svg
+              >
+              
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/company/auto-taxi-satelital/"
               aria-label="LinkedIn"
               class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-brand"
             >
@@ -172,8 +171,6 @@ const footerLinks = {
             </a>
           </div>
         </div>
-
-       
       </div>
     </div>
 
@@ -186,10 +183,18 @@ const footerLinks = {
           © {currentYear} PeGO. Todos los derechos reservados.
         </p>
         <div class="flex space-x-6 text-sm">
-          <a href="#" aria-label="Política de Privacidad" class="text-gray-400 hover:text-white transition-brand">
+          <a
+            href="#"
+            aria-label="Política de Privacidad"
+            class="text-gray-400 hover:text-white transition-brand"
+          >
             Política de Privacidad
           </a>
-          <a href="#" aria-label="Términos de Servicio" class="text-gray-400 hover:text-white transition-brand">
+          <a
+            href="#"
+            aria-label="Términos de Servicio"
+            class="text-gray-400 hover:text-white transition-brand"
+          >
             Términos de Servicio
           </a>
         </div>
