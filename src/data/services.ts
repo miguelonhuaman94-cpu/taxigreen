@@ -69,5 +69,12 @@ export const SERVICES = [
     image: cargoMovingImage,
     features: ["Transporte seguro", "Embalaje profesional", "Seguimiento de envíos"],
   },
+  {
+    icon: Car,
+    title: "Chofer de reemplazo",
+    description: "Servicio de choferes profesionales para reemplazo temporal.",
+    image: "https://choferes-reemplazo.com/wp-content/uploads/2022/07/chofer-reemplazo-choferes-servicio16.jpg", // TODO: Replace with actual image URL
+    id: "replacement-driver",
+  }
 ];
 

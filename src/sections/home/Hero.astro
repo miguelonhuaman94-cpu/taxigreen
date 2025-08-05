@@ -17,7 +17,10 @@ import Button from "@/components/ui/Button.astro";
       width={1920}
       height={1080}
       loading="eager"
-      priority
+      format="webp"
+      quality={80}
+      sizes="(max-width: 768px) 768px, (max-width: 1200px) 1200px, 1920px"
+      densities={[1, 2]}
     />
 
     <div
@@ -29,10 +32,10 @@ import Button from "@/components/ui/Button.astro";
   {/* Content */}
   <div class="relative z-10 container mx-auto px-4 lg:px-8">
     <div class="max-w-2xl">
-      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+      <h1 class="hero-title text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
         Tu viaje, Nuestra{" "}
         <span
-          class="text-gradient text-6xl font-extrabold md:text-8xl bg-gradient-to-r from-primary to-red-200 bg-clip-text text-transparent"
+          class="text-gradient text-6xl font-extrabold md:text-8xl bg-gradient-to-r from-primary to-green-200 bg-clip-text text-transparent"
         >
           Prioridad
         </span>
@@ -72,6 +75,29 @@ import Button from "@/components/ui/Button.astro";
     </div>
   </div>
 </section>
+
+<style>
+  .hero-title {
+    font-size: 2.25rem; /* 36px - tamaño base para móvil */
+  }
+
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 3.75rem; /* 60px - tamaño para tablet y desktop */
+    }
+  }
+
+  /* Asegurar que el h1 mantenga su tamaño específico dentro de la section */
+  section .hero-title {
+    font-size: 2.25rem !important;
+  }
+
+  @media (min-width: 768px) {
+    section .hero-title {
+      font-size: 3.75rem !important;
+    }
+  }
+</style>
 
 <script>
   document.getElementById('services-button')?.addEventListener('click', () => {

@@ -11,7 +11,7 @@
   --color-popover: #ffffff;
   --color-popover-foreground: #0d0d0d;
 
-  --color-primary: #E9242A;
+  --color-primary: #51B15C;
   --color-primary-foreground: #ffffff;
 
   --color-secondary: #f5f5f5;
@@ -32,7 +32,7 @@
 
   --color-radius: 12px;
 
-  --color-brand-red: #ff4d4f;
+  --color-brand-green: #51B15C;
   --color-brand-blue: #b3e6ff;
   --color-brand-dark: #1a1a1a;
   --color-brand-gray: #737373;
@@ -90,7 +90,7 @@
 
   --radius: var(--radius);
 
-  --brand-red: var(--brand-red);
+  --brand-green: var(--brand-green);
   --brand-blue: var(--brand-blue);
   --brand-dark: var(--brand-dark);
   --brand-gray: var(--brand-gray);
@@ -141,7 +141,7 @@
   
   .button-brand:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px -8px hsl(var(--brand-red) / 0.3);
+    box-shadow: 0 8px 25px -8px hsl(var(--brand-green) / 0.3);
   }
   
   /* Smooth transitions */

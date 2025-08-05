@@ -72,7 +72,7 @@ import { SERVICES } from "@/data/services";
 
     <div id="additional-services" class="hidden gap-8 mt-16">
       {
-        SERVICES.slice(3, 6).map((service, index) => (
+        SERVICES.slice(3, SERVICES.length).map((service, index) => (
           <Card
             key={index}
             id={service.id}
