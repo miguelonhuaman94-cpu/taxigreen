@@ -1,9 +1,8 @@
 ---
-// No necesitas código en el bloque de Astro para este componente
+import { PHONE_NUMBER } from "astro:env/client";
 ---
-
 <a
-  href="https://api.whatsapp.com/send?phone=+51907489956text=Hola me gustaría saber más sobre sus servicios"
+  href={`https://api.whatsapp.com/send?phone=${PHONE_NUMBER}&text=Hola me gustaría saber más sobre sus servicios`}
   class="whatsApp"
   target="_blank"
   id="whatsAppLink"

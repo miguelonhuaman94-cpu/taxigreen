@@ -14,7 +14,7 @@ import "@fontsource/poppins/900.css";
 
 import "../styles/global.css";
 
-const phoneNumber = "+51907489956"; // Update with your WhatsApp number
+import { PHONE_NUMBER, URL_SITE } from "astro:env/client";
 ---
 
 <!doctype html>
@@ -31,14 +31,14 @@ const phoneNumber = "+51907489956"; // Update with your WhatsApp number
     <meta name="keywords" content="taxi lima, taxi satelital, taxi green, taxi factura, taxi 24 horas, taxi aeropuerto" />
     <meta name="author" content="Taxi Green Aeropuerto Lima" />
 
-    <link rel="canonical" href="https://green-9xc.pages.dev/" />
-    
+    <link rel="canonical" href={URL_SITE} />
+
     {/* Open Graph Meta Tags */}
     <meta property="og:locale" content="es_ES" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Taxi Green Lima | Servicio de transporte confiable 24 horas" />
     <meta property="og:description" content="Somos Taxi Green Lima, empresa de servicio de transporte de pasajeros con la flota más grande, moderna y confiable de Lima. Servicios las 24 horas." />
-    <meta property="og:url" content="https://green-9xc.pages.dev/" />
+    <meta property="og:url" content={URL_SITE} />
     <meta property="og:site_name" content="Taxi Green Lima" />
     <meta property="og:image" content="/hero.webp" />
     <meta property="og:image:secure_url" content="/hero.webp" />
@@ -59,7 +59,8 @@ const phoneNumber = "+51907489956"; // Update with your WhatsApp number
     {/* Schema.org JSON-LD */}
     <script
       define:vars={{
-        phoneNumber,
+        phoneNumber: PHONE_NUMBER,
+        urlSite: URL_SITE,
       }}
     type="application/ld+json">
       {
@@ -67,9 +68,9 @@ const phoneNumber = "+51907489956"; // Update with your WhatsApp number
         "@graph": [
           {
             "@type": ["TaxiService", "Organization"],
-            "@id": "https://green-9xc.pages.dev/#organization",
+            "@id": `${urlSite}/#organization`,
             "name": "Taxi Satelital 355",
-            "url": "https://green-9xc.pages.dev",
+            "url": `${urlSite}`,
             "description": "Empresa de servicio de transporte de pasajeros con la flota más grande, moderna y confiable de Lima",
             "telephone": {phoneNumber},
             "address": {
@@ -91,16 +92,16 @@ const phoneNumber = "+51907489956"; // Update with your WhatsApp number
           },
           {
             "@type": "WebSite",
-            "@id": "https://green-9xc.pages.dev/#website",
-            "url": "https://green-9xc.pages.dev",
+            "@id": `${urlSite}/#website`,
+            "url": `${urlSite}`,
             "name": "Taxi Green Lima",
             "publisher": {
-              "@id": "https://green-9xc.pages.dev/#organization"
+              "@id": `${urlSite}/#organization`
             },
             "inLanguage": "es",
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://green-9xc.pages.dev/?s={search_term_string}",
+              "target": `${urlSite}/?s={search_term_string}`,
               "query-input": "required name=search_term_string"
             }
           }
@@ -169,7 +170,7 @@ const phoneNumber = "+51907489956"; // Update with your WhatsApp number
 
 <script
  define:vars={{
-  phoneNumber,
+  phoneNumber: PHONE_NUMBER,
  }}
 >
  const reservationButtons = document.querySelectorAll('[data-message]');
