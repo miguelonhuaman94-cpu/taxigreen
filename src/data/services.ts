@@ -1,10 +1,11 @@
 import { Plane, Clock, MapPin, Car, Shield } from "@lucide/astro";
 import airportTransferImage from "@/assets/services/airport-transfer.webp?url";
-import hourlyServiceImage from '@/assets/services/hourly-service.webp?url';
+import replacementDriverImage from "@/assets/services/replacement-driver.webp?url"; // Assuming this is the correct path for the replacement driver image
 import tourismTripImage from '@/assets/services/tourism-trip.webp?url';
 import packageDeliveryImage from '@/assets/services/package-delivery.webp?url';
 import schoolTransportImage from '@/assets/services/school-transport.webp?url';
 import cargoMovingImage from '@/assets/services/cargo-moving.webp?url';
+import hourlyServiceImage from '@/assets/services/hourly-service.webp?url';
 
 
 export const SERVICES = [
@@ -16,17 +17,13 @@ export const SERVICES = [
     description:
       "Servicio confiable y puntual para llegar a tiempo a tu vuelo. Monitoreo de vuelos en tiempo real.",
     image: airportTransferImage,
-    features: ["Monitoreo de vuelos", "Servicio 24/7", "Tarifas fijas"],
   },
   {
-    icon: Clock,
-    id: "hourly-service",
-    image: hourlyServiceImage,  
-    title: "Servicio por horas",
-    description:
-      "Disponibilidad total durante el tiempo que necesites. Ideal para reuniones de trabajo y eventos.",
-    
-    features: ["Flexibilidad total", "Conductor dedicado", "Tarifas por hora"],
+    icon: Car,
+    id: "replacement-driver",
+    title: "Chofer de reemplazo",
+    description: "Servicio de choferes profesionales para reemplazo temporal.",
+    image: replacementDriverImage,
   },
   {
     icon: MapPin,
@@ -36,11 +33,6 @@ export const SERVICES = [
     description:
       "Descubre los mejores destinos con nuestros tours personalizados y guías especializados.",
     image: tourismTripImage,
-    features: [
-      "Rutas personalizadas",
-      "Guías especializados",
-      "Grupos pequeños",
-    ],
   },
   
   //* Additional Services
@@ -51,7 +43,6 @@ export const SERVICES = [
     id: "package-delivery",
     image: packageDeliveryImage,
    
-    features: ["Entrega rápida", "Seguimiento en tiempo real", "Seguro de envío"],
   },
   {
     icon: Car,
@@ -59,7 +50,7 @@ export const SERVICES = [
     description: "Transporte seguro y puntual para estudiantes.",
     id: "school-transport",
     image: schoolTransportImage,
-    features: ["Conductores capacitados", "Vehículos adaptados", "Rutas seguras"],
+  
   },
   {
     icon: Shield,
@@ -67,14 +58,16 @@ export const SERVICES = [
     description: "Servicios de carga y mudanza eficientes y seguros.",
     id: "cargo-moving",
     image: cargoMovingImage,
-    features: ["Transporte seguro", "Embalaje profesional", "Seguimiento de envíos"],
+  
   },
   {
-    icon: Car,
-    title: "Chofer de reemplazo",
-    description: "Servicio de choferes profesionales para reemplazo temporal.",
-    image: "https://choferes-reemplazo.com/wp-content/uploads/2022/07/chofer-reemplazo-choferes-servicio16.jpg", // TODO: Replace with actual image URL
-    id: "replacement-driver",
-  }
+    icon: Clock,
+    id: "hourly-service",
+    image: hourlyServiceImage,  
+    title: "Servicio por horas",
+    description:
+      "Disponibilidad total durante el tiempo que necesites. Ideal para reuniones de trabajo y eventos.",
+
+  },
 ];
 
