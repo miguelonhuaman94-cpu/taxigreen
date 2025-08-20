@@ -141,8 +141,6 @@ const { item, isMobile = false } = Astro.props as Props;
       const hash = window.location.hash; // Ej: "#cargo-moving"
       const serviceId = hash.replace("#", "");
 
-      console.log(serviceId)
-
       if (serviceId) {
 
         const menuDropdownMobile = document.querySelector("#menu-dropdown-mobile");
@@ -152,7 +150,6 @@ const { item, isMobile = false } = Astro.props as Props;
           const serviceLink = document.querySelector(
           `.service-link-desktop[href="/#${serviceId}"]`
         ) as HTMLAnchorElement;
-        console.log(serviceLink);
           const parent = serviceLink.parentElement as HTMLElement;
           const sibling = parent.previousElementSibling as HTMLElement;
           const grantParent = parent.parentElement as HTMLElement;
