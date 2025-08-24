@@ -1,15 +1,13 @@
 name = "taxigreenpremium"
-type = "javascript"  # o "rust" dependiendo de tu configuración
-
 account_id = "11a828da4c0ea9b4754f85ed131d3cca"
 workers_dev = false
 
 # Configuración de rutas
 [[routes]]
-route = "taxigreenpremium.com/*"
+pattern = "taxigreenpremium.com/*"
 zone_id = "c9c753e71fb8159f5eeb64b2459a90ff"
 
-# Otras configuraciones de build
+# Configuración de build
 [build]
-  directory = "dist"  # Este es el directorio que genera Astro
   command = "npm run build"  # El comando de build de tu proyecto
+  cwd = "./dist"  # Directorio de salida de Astro
