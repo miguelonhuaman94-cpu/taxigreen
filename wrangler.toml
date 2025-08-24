@@ -2,6 +2,7 @@ name = "taxigreenpremium"
 compatibility_date = "2025-08-24"
 
 [build]
+command = "npm run build"
 upload = {
   dir = "./dist",
   format = "service-worker"
