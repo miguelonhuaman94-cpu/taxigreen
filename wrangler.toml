@@ -2,12 +2,10 @@ name = "taxigreenpremium"
 compatibility_date = "2025-08-24"
 
 [build]
-upload = {
-  dir = "./dist"  # Aquí se indica el directorio donde están los archivos generados por Astro
-}
+upload = { dir = "./dist" }
 
 [assets]
-directory = "./dist"  # Asegúrate de que esté configurado para los archivos estáticos
+directory = "./dist"
 
 [env.production]
 route = "taxigreenpremium.com/*"
