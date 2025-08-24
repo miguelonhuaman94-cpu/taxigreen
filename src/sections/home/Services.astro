@@ -9,7 +9,7 @@ import { SERVICES } from "@/data/services";
 ---
 
 <section
-  id="services"
+  id="servicios"
   class="py-20 bg-gradient-to-b from-background to-accent/10"
 >
   <div class="container mx-auto px-4 lg:px-8">
@@ -91,6 +91,7 @@ import { SERVICES } from "@/data/services";
                 aria-label="Reservar Ahora"
                 variant="brand"
                 size="sm"
+                data-message={`Hola, me gustaría reservar el servicio de ${service.title}.`}
                 class="w-full mt-2 mb-4"
               >
                 Reservar ahora

@@ -22,13 +22,24 @@ import { PHONE_NUMBER, URL_SITE } from "astro:env/client";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+    <meta
+      name="robots"
+      content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <title>Taxi Green Aeropuerto Lima :: Servicio de Taxi Aeropuerto las 24 Horas</title>
-    <meta name="description" content="Taxi Green Aeropuerto Lima, Servicio de Taxi Aeropuerto las 24 Horas, Servicio Ejecutivo de Taxi Aeropuerto" />
-    <meta name="keywords" content="taxi lima, taxi satelital, taxi green, taxi factura, taxi 24 horas, taxi aeropuerto" />
+    <title>
+      Taxi Green Aeropuerto Lima :: Servicio de Taxi Aeropuerto las 24 Horas
+    </title>
+    <meta
+      name="description"
+      content="Taxi Green Aeropuerto Lima, Servicio de Taxi Aeropuerto las 24 Horas, Servicio Ejecutivo de Taxi Aeropuerto"
+    />
+    <meta
+      name="keywords"
+      content="taxi lima, taxi satelital, taxi green, taxi factura, taxi 24 horas, taxi aeropuerto"
+    />
     <meta name="author" content="Taxi Green Aeropuerto Lima" />
 
     <link rel="canonical" href={URL_SITE} />
@@ -36,79 +47,89 @@ import { PHONE_NUMBER, URL_SITE } from "astro:env/client";
     {/* Open Graph Meta Tags */}
     <meta property="og:locale" content="es_ES" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Taxi Green Lima | Servicio de transporte confiable 24 horas" />
-    <meta property="og:description" content="Somos Taxi Green Lima, empresa de servicio de transporte de pasajeros con la flota más grande, moderna y confiable de Lima. Servicios las 24 horas." />
+    <meta
+      property="og:title"
+      content="Taxi Green Lima | Servicio de transporte confiable 24 horas"
+    />
+    <meta
+      property="og:description"
+      content="Somos Taxi Green Lima, empresa de servicio de transporte de pasajeros con la flota más grande, moderna y confiable de Lima. Servicios las 24 horas."
+    />
     <meta property="og:url" content={URL_SITE} />
     <meta property="og:site_name" content="Taxi Green Lima" />
     <meta property="og:image" content="/hero.webp" />
     <meta property="og:image:secure_url" content="/hero.webp" />
     <meta property="og:image:width" content="1680" />
     <meta property="og:image:height" content="1120" />
-    <meta property="og:image:alt" content="Taxi Green Lima - Servicio de transporte confiable" />
+    <meta
+      property="og:image:alt"
+      content="Taxi Green Lima - Servicio de transporte confiable"
+    />
     <meta property="og:image:type" content="image/webp" />
 
     {/* Twitter Card Meta Tags */}
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Taxi Green Lima | Servicio de transporte confiable 24 horas" />
-    <meta name="twitter:description" content="Somos Taxi Green Lima, empresa de servicio de transporte de pasajeros con la flota más grande, moderna y confiable de Lima. Servicios las 24 horas." />
+    <meta
+      name="twitter:title"
+      content="Taxi Green Lima | Servicio de transporte confiable 24 horas"
+    />
+    <meta
+      name="twitter:description"
+      content="Somos Taxi Green Lima, empresa de servicio de transporte de pasajeros con la flota más grande, moderna y confiable de Lima. Servicios las 24 horas."
+    />
     <meta name="twitter:image" content="/hero.webp" />
     <meta name="twitter:site" content="@TaxiGreenLima" />
     <meta name="twitter:creator" content="@TaxiGreenLima" />
 
-   
     {/* Schema.org JSON-LD */}
     <script
-      define:vars={{
-        phoneNumber: PHONE_NUMBER,
-        urlSite: URL_SITE,
-      }}
-    type="application/ld+json">
-      {
+      type="application/ld+json"
+      set:html={JSON.stringify({
         "@context": "https://schema.org",
         "@graph": [
           {
             "@type": ["TaxiService", "Organization"],
-            "@id": `${urlSite}/#organization`,
-            "name": "Taxi Satelital 355",
-            "url": `${urlSite}`,
-            "description": "Empresa de servicio de transporte de pasajeros con la flota más grande, moderna y confiable de Lima",
-            "telephone": {phoneNumber},
-            "address": {
+            "@id": `${URL_SITE}/#organization`,
+            name: "Taxi Green Lima",
+            url: URL_SITE,
+            description:
+              "Empresa de servicio de transporte de pasajeros con la flota más grande, moderna y confiable de Lima",
+            telephone: PHONE_NUMBER,
+            address: {
               "@type": "PostalAddress",
-              "addressLocality": "Lima",
-              "addressCountry": "PE"
+              addressLocality: "Lima",
+              addressCountry: "PE",
             },
-            "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 00:00-23:59",
-            "priceRange": "$$",
-            "serviceArea": {
+            openingHours: "Mo,Tu,We,Th,Fr,Sa,Su 00:00-23:59",
+            priceRange: "$$",
+            serviceArea: {
               "@type": "GeoCircle",
-              "geoMidpoint": {
+              geoMidpoint: {
                 "@type": "GeoCoordinates",
-                "latitude": -12.021093,
-                "longitude": -77.118858
+                latitude: -12.021093,
+                longitude: -77.118858,
               },
-              "geoRadius": "50000"
-            }
+              geoRadius: "50000",
+            },
           },
           {
             "@type": "WebSite",
-            "@id": `${urlSite}/#website`,
-            "url": `${urlSite}`,
-            "name": "Taxi Green Lima",
-            "publisher": {
-              "@id": `${urlSite}/#organization`
+            "@id": `${URL_SITE}/#website`,
+            url: URL_SITE,
+            name: "Taxi Green Lima",
+            publisher: {
+              "@id": `${URL_SITE}/#organization`,
             },
-            "inLanguage": "es",
-            "potentialAction": {
+            inLanguage: "es",
+            potentialAction: {
               "@type": "SearchAction",
-              "target": `${urlSite}/?s={search_term_string}`,
-              "query-input": "required name=search_term_string"
-            }
-          }
-        ]
-      }
-    </script>
-    
+              target: `${URL_SITE}/?s={search_term_string}`,
+              "query-input": "required name=search_term_string",
+            },
+          },
+        ],
+      })}
+    />
   </head>
   <body>
     <Header />
@@ -127,58 +148,54 @@ import { PHONE_NUMBER, URL_SITE } from "astro:env/client";
     font-family: "Poppins", sans-serif;
   }
 
-
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
   }
-  to {
-    transform: rotate(360deg);
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
   }
-}
 
-.card {
-  padding: 2em;
-}
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 
-.read-the-docs {
-  color: #888;
-}
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
 
+  .card {
+    padding: 2em;
+  }
+
+  .read-the-docs {
+    color: #888;
+  }
 </style>
 
-
 <script
- define:vars={{
-  phoneNumber: PHONE_NUMBER,
- }}
+  define:vars={{
+    phoneNumber: PHONE_NUMBER,
+  }}
 >
- const reservationButtons = document.querySelectorAll('[data-message]');
- reservationButtons.forEach(button => {
-   button.addEventListener('click', () => {
-     const message = button.getAttribute('data-message');
-     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-     window.open(whatsappUrl, '_blank');
-   });
- });
+  const reservationButtons = document.querySelectorAll("[data-message]");
+  reservationButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const message = button.getAttribute("data-message");
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, "_blank");
+    });
+  });
 </script>
