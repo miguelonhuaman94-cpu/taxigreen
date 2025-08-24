@@ -1,15 +1,19 @@
 name = "taxigreen"
 compatibility_date = "2025-08-24"
 
-# Comando de construcción para Astro
+# Si estás usando un Worker específico (por ejemplo, un archivo JavaScript o TypeScript para el Worker)
+main = "src/index.ts"  # Ajusta este valor si es necesario
+
+# Si no estás usando un Worker y solo necesitas desplegar archivos estáticos
 [build]
-command = "npm run build"
+  # Si tus archivos están en la carpeta `dist/` (por ejemplo, después de compilar Astro)
+  directory = "./dist"
 
-# Esta sección es donde defines tu dominio personalizado
-[[env.production]]
-name = "taxigreen-production"
-route = "taxigreenpremium.com/*"  # Tu dominio personalizado
-zone_id = "c9c753e71fb8159f5eeb64b2459a90ff"  # Tu zone_id de Cloudflare
+# Si estás usando Workers Dev (debe ser `false` si ya tienes un dominio configurado)
+[workers_dev]
+enabled = false
 
-# Configuración para Workers Dev (si usas desarrollo local)
-workers_dev = false  # Cambia esto
+# Aquí se define la zona de tu dominio
+[[routes]]
+  route = "taxigreenpremium.com/*"
+  zone_id = "c9c753e71fb8159f5eeb64b2459a90ff"
