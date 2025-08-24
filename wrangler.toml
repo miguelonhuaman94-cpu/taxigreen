@@ -3,7 +3,8 @@ compatibility_date = "2025-08-24"
 
 [build]
 upload = {
-  dir = "./dist",  # Ruta a los archivos generados por Astro
+  dir = "./dist",
+  format = "service-worker"
 }
 
 [env.production]
