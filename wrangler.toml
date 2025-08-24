@@ -12,5 +12,4 @@ route = "taxigreenpremium.com/*"  # Tu dominio personalizado
 zone_id = "c9c753e71fb8159f5eeb64b2459a90ff"  # Tu zone_id de Cloudflare
 
 # Configuración para Workers Dev (si usas desarrollo local)
-[workers_dev]
-enabled = false  # Esto asegura que no se intente desplegar en dev
+workers_dev = false  # Cambia esto
