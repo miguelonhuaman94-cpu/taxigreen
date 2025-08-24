@@ -1,13 +1,6 @@
 name = "taxigreenpremium"
 compatibility_date = "2025-08-24"
 
-[build]
-command = "npm run build"
-upload = {
-  dir = "./dist",
-  format = "service-worker"
-}
-
 [env.production]
 route = "taxigreenpremium.com/*"
 zone_id = "c9c753e71fb8159f5eeb64b2459a90ff"
