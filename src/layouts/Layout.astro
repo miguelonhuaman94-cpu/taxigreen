@@ -19,6 +19,7 @@ import { PHONE_NUMBER, URL_SITE } from "astro:env/client";
 <!doctype html>
 <html lang="es">
 <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="index, follow" />
@@ -106,6 +107,17 @@ import { PHONE_NUMBER, URL_SITE } from "astro:env/client";
             }
         ]
     })} />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17500159047">
+    </script>
+    <script client:load>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17500159047');
+    </script>
+
 </head>
 
 <body>
